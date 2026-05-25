@@ -25,7 +25,7 @@ export function getAuthUser() {
 }
 
 export async function setAuthCookie(token: string) {
-  const cookieStore = cookies()
+  const cookieStore = await cookies()
 
   cookieStore.set('token', token, {
     httpOnly: true,
