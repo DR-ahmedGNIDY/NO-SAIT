@@ -24,7 +24,7 @@ async function seedAdmin() {
       process.exit(0)
     }
 
-    const hashedPassword = await bcrypt.hash('admin123', 12)
+    const hashedPassword = await bcrypt.hash('Aa201241#', 12)
     const admin = new User({
       email: 'admin@nosait.com',
       password: hashedPassword,
