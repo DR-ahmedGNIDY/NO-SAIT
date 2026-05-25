@@ -35,7 +35,7 @@ async function seedAdmin() {
     await admin.save()
     console.log('Admin user created successfully')
     console.log('Email: admin@nosait.com')
-    console.log('Password: admin123')
+    console.log('Password: Aa201241#')
     console.log('IMPORTANT: Change the default password after first login!')
 
     process.exit(0)
