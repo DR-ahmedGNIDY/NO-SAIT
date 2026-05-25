@@ -27,12 +27,14 @@ export async function getAuthUser() {
 export async function setAuthCookie(token: string) {
   const cookieStore = await cookies()
 
-  cookieStore.set('token', token, {
+  cookieStore.set({
+    name: 'token',
+    value: token,
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
-    maxAge: 60 * 60 * 24 * 7,
+    sameSite: 'lax',
     path: '/',
+    maxAge: 60 * 60 * 24 * 7,
   })
 }
 
