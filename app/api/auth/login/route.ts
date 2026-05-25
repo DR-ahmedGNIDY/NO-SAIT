@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
       role: user.role,
     })
 
-    setAuthCookie(token)
+    await setAuthCookie(token)
 
     return NextResponse.json({
       success: true,
