@@ -1,0 +1,21 @@
+{
+  "name": "NOSAIT - تصميم وتطوير المواقع",
+  "short_name": "NOSAIT",
+  "description": "شركة تصميم وتطوير مواقع احترافية",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#061523",
+  "theme_color": "#3b6eff",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
