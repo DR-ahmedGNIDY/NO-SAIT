@@ -267,17 +267,6 @@ export default function AdminDashboardPage() {
 
   return (
     <div className="min-h-screen bg-navy-950 flex">
-      <AnimatePresence>
-        {sidebarOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSidebarOpen(false)}
-            className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-          />
-        )}
-      </AnimatePresence>
 
       <motion.aside
   className={`fixed lg:sticky top-0 right-0 h-screen w-72 bg-navy-900/95 backdrop-blur-xl border-l border-white/10 z-50 flex flex-col transition-transform duration-300 ${
@@ -332,19 +321,33 @@ export default function AdminDashboardPage() {
       <div className="flex-1 min-w-0">
         <header className="sticky top-0 z-30 bg-navy-950/80 backdrop-blur-xl border-b border-white/10 px-6 py-4">
           <div className="flex items-center justify-between">
-            <button
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="lg:hidden p-2 text-white/60 hover:text-white"
-            >
-              <Menu className="w-6 h-6" />
-            </button>
+           
             <h1 className="text-xl font-bold text-white">
               {sidebarItems.find((i) => i.id === activeTab)?.label}
             </h1>
             <div className="w-10" />
           </div>
         </header>
-
+<div className="sticky top-[73px] z-20 bg-navy-950/80 backdrop-blur-xl border-b border-white/10 px-4 py-4 overflow-x-auto">
+  <div className="flex gap-3 min-w-max">
+    {sidebarItems.map((item) => (
+      <button
+        key={item.id}
+        onClick={() => setActiveTab(item.id)}
+        className={`flex items-center gap-2 px-5 py-3 rounded-2xl transition-all whitespace-nowrap ${
+          activeTab === item.id
+            ? 'bg-gradient-to-r from-electric-600 to-purple-accent text-white'
+            : 'bg-white/5 text-white/60 hover:bg-white/10'
+        }`}
+      >
+        <item.icon className="w-4 h-4" />
+        <span className="text-sm font-medium">
+          {item.label}
+        </span>
+      </button>
+    ))}
+  </div>
+</div>
         <main className="p-6">
           {activeTab === 'overview' && (
             <div className="space-y-6">
