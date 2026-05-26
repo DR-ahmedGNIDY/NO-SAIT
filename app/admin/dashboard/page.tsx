@@ -280,10 +280,12 @@ export default function AdminDashboardPage() {
       </AnimatePresence>
 
       <motion.aside
-        className={`fixed lg:sticky top-0 right-0 h-screen w-72 bg-navy-900/95 backdrop-blur-xl border-l border-white/10 z-50 flex flex-col ${
-          sidebarOpen ? 'translate-x-0' : 'translate-x-0'
-        } transition-transform duration-300`}
-      >
+  className={`fixed lg:sticky top-0 right-0 h-screen w-72 bg-navy-900/95 backdrop-blur-xl border-l border-white/10 z-50 flex flex-col transition-transform duration-300 ${
+    sidebarOpen
+      ? 'translate-x-0'
+      : 'translate-x-full lg:translate-x-0'
+  }`}
+>
         <div className="p-6 border-b border-white/10">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-electric-500 to-purple-accent flex items-center justify-center">
@@ -331,7 +333,7 @@ export default function AdminDashboardPage() {
         <header className="sticky top-0 z-30 bg-navy-950/80 backdrop-blur-xl border-b border-white/10 px-6 py-4">
           <div className="flex items-center justify-between">
             <button
-              onClick={() => setSidebarOpen(true)}
+              onClick={() => setSidebarOpen(!sidebarOpen)}
               className="lg:hidden p-2 text-white/60 hover:text-white"
             >
               <Menu className="w-6 h-6" />
